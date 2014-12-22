@@ -13,4 +13,4 @@ ADD themes /var/www/html/themes
 
 WORKDIR /var/www/html
 
-CMD ["landslide", "-t", "themes/default", "--copy-theme", "--relative", "test.md"]
+CMD ["landslide", "-t", "themes/default", "--copy-theme", "--relative", "npug.md"]

@@ -8,10 +8,10 @@ vagrant up
 vagrant ssh
 sudo su -
 docker images (Should have just the base images listed)
-cd landslide && docker build -t yarnhoj/landslide .
-cd nginx && docker build -t yarnhoj/nginx .
-docker run -it -d -name app -v /var/www/html yarnhoj/landslide
-docker run -it -d -name web --volumes-from app -p 80:8000 yarnhoj/nginx
+cd /vagrant/landslide && docker build -t yarnhoj/landslide .
+cd /vagrant/nginx && docker build -t yarnhoj/nginx .
+docker run -it -d --name pres -v /var/www/html yarnhoj/landslide
+docker run -it -d --name web --volumes-from pres -p 8000:80 yarnhoj/nginx
 super + 3; super + r google-chrome
 localhost:8000/presentation.html
 
@@ -22,8 +22,8 @@ localhost:8000/presentation.html
 #Intro
 ##finger jray
 Login: yarnhoj	Name: John R. Ray
-Directory: /home/Shadow-Soft	Shell: /usr/bin/consultant
-On since Mon May 5 08:00 (EST) on: 0 from :Leidos (messages @theyarnhoj)
+Directory: blog.johnray.io	Shell: /usr/bin/consultant
+On since Mon May 5 08:00 (EST) on :Shadow-Soft from :Leidos (messages @theyarnhoj)
 Mail at <jray@shadow-soft.com>.
 Plan to try and take over the world. 
 
@@ -51,7 +51,7 @@ COMMAND
 Volumes
 Ports
 Names
-Launch an nginx container with the npug index.htmear
+Launch an nginx container with the npug index.html
 
 #The future of networking
 ##SDN in a container
