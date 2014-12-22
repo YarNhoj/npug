@@ -20,4 +20,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     s.vm.hostname = 'server.shadow-soft.com'
     s.vm.provision :hosts
   end
+	config.vm.define :node1 do |n|
+		n.vm.network :private_network, ip: "10.10.100.101"
+		n.vm.hostname = 'node1.shadow-soft.com'
+		n.vm.provision :hosts
+	end
 end

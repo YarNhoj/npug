@@ -1,14 +1,58 @@
 Cisco NPUG Docker
 
-#Intro to Docker
-##What is Docker
-	Brief look at what docker is and why it matters
-##Docker 100 (and Live demo)
-	Basic usage of docker
-	Dockerfile
-	Docker commands
-	running containers
-	Build an nginx container
+Live demo of using docker to build the presentation
+
+git clone npug
+cd /project/npug
+vagrant up
+vagrant ssh
+sudo su -
+docker images (Should have just the base images listed)
+cd landslide && docker build -t yarnhoj/landslide .
+cd nginx && docker build -t yarnhoj/nginx .
+docker run -it -d -name app -v /var/www/html yarnhoj/landslide
+docker run -it -d -name web --volumes-from app -p 80:8000 yarnhoj/nginx
+super + 3; super + r google-chrome
+localhost:8000/presentation.html
+
+##Intro to Docker
+#Brought to you by Shadow-Soft
+
+##Agenda
+#Intro
+##finger jray
+Login: yarnhoj	Name: John R. Ray
+Directory: /home/Shadow-Soft	Shell: /usr/bin/consultant
+On since Mon May 5 08:00 (EST) on: 0 from :Leidos (messages @theyarnhoj)
+Mail at <jray@shadow-soft.com>.
+Plan to try and take over the world. 
+
+Shadow-Soft is an OSS Integrator and Docker Partner
+
+#What is docker
+Brief explication of what docker is
+#And why should I care
+Docker provides a common format
+Is the future of applicaiton development
+#docker 100ish
+Switch over to a console window and briefely go through the docker commands
+docker images
+show the docker hub
+docker pull
+docker ps
+docker run
+docker stop/kill
+docker exec
+The Dockerfile
+FROM
+RUN
+EXPOSE
+COMMAND
+Volumes
+Ports
+Names
+Launch an nginx container with the npug index.htmear
+
 #The future of networking
 ##SDN in a container
 ##Container namespaces
