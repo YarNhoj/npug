@@ -16,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     s.vm.network :private_network,  ip: "10.10.100.100"
     s.vm.network "forwarded_port", guest: 80, host: 8080
+    s.vm.network "forwarded_port", guest: 8000, host: 8000
     s.vm.hostname = 'server.shadow-soft.com'
     s.vm.provision :hosts
   end
