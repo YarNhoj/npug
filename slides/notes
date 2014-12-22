@@ -1,0 +1,17 @@
+Cisco NPUG Docker
+
+#Intro to Docker
+##What is Docker
+	Brief look at what docker is and why it matters
+##Docker 100 (and Live demo)
+	Basic usage of docker
+	Dockerfile
+	Docker commands
+	running containers
+	Build an nginx container
+#The future of networking
+##SDN in a container
+##Container namespaces
+##Weave (live demo)
+	Spin up two vm's in vagrant that can talk to each other
+	ping each other
