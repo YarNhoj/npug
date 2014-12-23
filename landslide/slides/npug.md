@@ -1,29 +1,38 @@
-# Landslide
+# NPUG: Docker 100...ish 
+## Brought to you by
+## Shadow-Soft
 
 ---
 
-# Overview
-
-Generate HTML5 slideshows from markdown, ReST, or textile.
-
-![python](http://i.imgur.com/bc2xk.png)
-
-Landslide is primarily written in Python, but it's themes use:
-
-- HTML5
-- Javascript
-- CSS
+# Agenda
+Introductions
+What is Docker
+The Rundown
+Networking
+Shoot The Messenger
 
 ---
 
-# Code Sample
+# finger $speaker
+Login: yarnhoj                   Name: John R. Ray
+Directory: blog.johnray.io       Shell: /usr/bin/consultant
+On since Mon May 5 08:00 (EST) on :Shadow-Soft from :Leidos (messages @theyarnhoj)
+Mail at <jray@shadow-soft.com>.
+Plan to try and take over the world.
 
-Landslide supports code snippets
+---
 
-    !python
-    def log(self, message, level='notice'):
-        if self.logger and not callable(self.logger):
-            raise ValueError(u"Invalid logger set, must be a callable")
+# getent company $speaker
 
-        if self.verbose and self.logger:
-            self.logger(message, level)
+Shadow-Soft is an OSS Integrator and Docker Partner
+
+---
+# What is Docker?
+
+---
+
+#And why should I care?
+
+---
+
+# Docker 100...ish
