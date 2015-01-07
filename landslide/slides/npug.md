@@ -28,16 +28,16 @@
 
 * CentOS/RHEL Docker is in the EPEL
 
-    # yum install -y epel-release
-    # yum install -y docker-io
+        # yum install -y epel-release
+        # yum install -y docker-io
 
 * Ubuntu
 
-    # sudo apt-get install -y docker.io
+        # sudo apt-get install -y docker.io
 
 * Mac/Windows
 
-    # sudo make me a sandwhich and I might tell you
+        # sudo make me a sandwhich and I might tell you
 
 In all seriousness on Mac/Windows you will use boot2docker :)
 
