@@ -28,16 +28,16 @@
 
 * CentOS/RHEL Docker is in the EPEL
 
-    # yum install -y epel-release
-    # yum install -y docker-io
+        # yum install -y epel-release
+        # yum install -y docker-io
 
 * Ubuntu
 
-    # sudo apt-get install -y docker.io
+        # sudo apt-get install -y docker.io
 
 * Mac/Windows
 
-    # sudo make me a sandwhich and I might tell you
+        # sudo make me a sandwhich and I might tell you
 
 In all seriousness on Mac/Windows you will use boot2docker :)
 
@@ -132,9 +132,6 @@ Docker + IBM = 800K
 
 #Enough with the words
 
-#Presenter Notes
-Docker commands, docker; images, pull, run: -it -d --rm --name -v -P/p, ps, rm, rmi, exec, TALK ABOUT WORKFLOW, Dockerfile; FROM, RUN, EXPOSE, CMD, COPY, ADD
-
 ---
 
 #Building an nginx container
@@ -197,9 +194,6 @@ Using the --net option allows you to declare a container as the namespace for ot
 
 This allows a single point of entry into all your containers.
 
-#Presenter Notes
-Load up the nginx container with a busybox images as the namespace show that you can curl the port from all containers and the host
-
 ---
 
 #Container Networking
@@ -237,9 +231,6 @@ Traffic can be encrypted, allowing hosts to be connected across an untrusted net
 Weave creates a virtual network that connects Docker containers deployed across multiple hosts.
 
 Applications use the network just as if the containers were all plugged into the same network switch, with no need to configure port mappings, links, etc. 
-
-#Presenter Notes
-Fire up the client VM and launch weave
 
 ---
 
