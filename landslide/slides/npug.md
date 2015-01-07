@@ -67,9 +67,9 @@ In all seriousness on Mac/Windows you will use boot2docker :)
 
 Containers are built on the idea of Kernel Namespaces.
 
-Namespaces are an abstraction that make it seem like each process has it's own isolated instance of a global resource.
+Abstraction that make it seem like each process has it's own isolated instance of a global resource.
 
-Docker is an platform for developers and sysadmins to build, ship, and run distributed applications in containers
+Docker is an platform to build, ship, and run distributed applications in containers
 
 It is a building block for creating distributed systems. 
 
