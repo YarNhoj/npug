@@ -1,8 +1,0 @@
-dns:
-  image: yarnhoj/dns
-  ports:
-    - "53"
-web:
- image: yarnhoj/nginx
- links: 
-  - dns:dns

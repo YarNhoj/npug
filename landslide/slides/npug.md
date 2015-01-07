@@ -44,7 +44,9 @@ In all seriousness on Mac/Windows you will use boot2docker :)
 ---
 
 #Introductions
-    
+
+
+
     #finger $speaker
     Login: yarnhoj                   Name: John R. Ray
     Directory: blog.johnray.io       Shell: /usr/bin/consultant
@@ -52,6 +54,9 @@ In all seriousness on Mac/Windows you will use boot2docker :)
     (messages @theyarnhoj)
     Mail at <jray@shadow-soft.com>.
     Plan to try and take over the world.
+
+
+
 
     # getent company $speaker
     Shadow-Soft:x:1:1:OSS Integrator and Docker Partner founded in 2008,,,
@@ -62,13 +67,15 @@ In all seriousness on Mac/Windows you will use boot2docker :)
 
 Containers are built on the idea of Kernel Namespaces.
 
-Namespaces wrap system resources in an abstraction that make it seem like each process has it's own isolated instance of the global resource.
+Namespaces are an abstraction that make it seem like each process has it's own isolated instance of a global resource.
 
-Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications in containers
+Docker is an platform for developers and sysadmins to build, ship, and run distributed applications in containers
 
-Docker can run on any x64 machine with a modern linux kernel and isolates processes from each other and from the underlying host.
+It is a building block for creating distributed systems. 
 
-It is a building block for automating distributed systems. Containers behave the same regardless of where, when, and alongside what they run.
+Containers behave the same regardless of where, when, and alongside what they run.
+
+Docker can run on any x64 machine with a modern linux kernel.
 
 Traditional OS; Ubuntu, CentOS, RHEL
 
@@ -82,15 +89,30 @@ Hosted; GCE, Amazon, IBM
 
 Containers are NOT virtual machines.
 
-Virtual machines have a full OS with lots of overhead, Containers share the host’s OS.
+Virtual machines have a full OS with lots of overhead, Containers share the host’s OS
 
-This enables near native performance in a container because you don't deal with the vitual hardware.
+Near native performance because you don't deal with the vitual hardware
 
-The reduction is overall cost also allows greater density on the host.
+The reduction is overall cost also allows greater density on the host
 
-Containers launch near instantly. No more waiting on someone to provision a vm for you.
+Containers launch near instantly.
 
 Containers aren't going to replace VM's...Yet
+
+---
+# Containers vs VM's
+
+## What VM's Do Better
+
+* Running multiple OS's
+* Aren't dependent on the Linux Kernel
+* More refined Orchestration
+
+## What Containers Do Better
+
+* Faster Boot
+* Elastic resource allocation 
+* Extremely high density
 
 ---
 
@@ -102,13 +124,9 @@ IBM, Amazon, Google, and Microsoft have announced hosted versions of their Docke
 
 Red Hat's upcoming Openshift V3 will be based on Kubernetes and Docker
 
-Docker containers give system administrators a new way to allocate compute resources which introduces a whole new set of virtual network pieces that network engineers will have to manage.
+Docker containers give system administrators a new way to allocate compute resources 
 
-Containers create new problems for infrastructure admins as they must now consider all hardware together as a compute resource.
-
-No longer will you have one application on a single "Host". This has far reaching implication for network security.
-
-The need for ultra highspeed ultra available networking will only increase as the idea of a "datacenter" becomes more organic.
+Introduces a whole new set of networkng needs
 
 ---
 
@@ -116,7 +134,7 @@ The need for ultra highspeed ultra available networking will only increase as th
 
 There are over 22 thousand projects on github related to docker.
 
-A quick google search reveals
+A quick google search reveals a lot of hits
 
 Docker + Cisco = 500k
 
@@ -124,9 +142,9 @@ Docker + VMWare = 800k
 
 Docker + Amazon = 700k
 
-Docker + Microsoft = 1.3m 
-
 Docker + IBM = 800K
+
+Docker + Microsoft = 1.3m 
 
 ---
 
@@ -177,15 +195,19 @@ Docker commands, docker; images, pull, run: -it -d --rm --name -v -P/p, ps, rm, 
 
 When Docker starts, it creates a virtual interface named docker0 on the host machine. 
 
-It randomly chooses an address and subnet from the private range defined by RFC 1918 that are not in use on the host machine, and assigns it to docker0.
+It randomly chooses an address and subnet from the private range defined by RFC 1918 
 
-Docker0 is a virtual Ethernet bridge that automatically forwards packets between any other network interfaces that are attached to it. 
+Virtual Ethernet bridge 
 
-This lets containers communicate both with the host machine and with each other. 
+Automatically forwards packets between any other network interfaces that are attached to it. 
 
-Every time Docker creates a container, it creates a pair of “peer” interfaces that are like opposite ends of a pipe — a packet sent on one will be received on the other.
+Every time Docker creates a container, it creates a pair of “peer” interfaces 
 
-Docker has an extensive guide on all of the networking options including; Building your own bridge, How to customize the docker0 bridge, and configuring DNS
+Docker has an extensive guide on all of the networking options including; 
+
+* Building your own bridge
+* How to customize docker0 
+* configuring DNS
 
 Head over to https://docs.docker.com/articles/networking/ for more information.
 
@@ -204,14 +226,17 @@ Load up the nginx container with a busybox images as the namespace show that you
 
 #Container Networking
 
-Over the years, networking for virtual machines has evolved tremendously, and now hypervisors routinely support advanced networking capabilities.
+Over the years, networking for virtual machines has evolved tremendously
+
+Hypervisors routinely support advanced networking capabilities
 
 Containers are not there...Yet.
 
 A Few Issues:
 
-* Containers from different hosts cannot be in the same network. This restricts users from creating commonly used network topologies with containers.
-* The existing networking solutions are either slow, restrictive, or too speciallized for general use.
+* Controlling how applications are launched and under what conditions
+* The existing networking solutions are either slow, restrictive, or too speciallized for general use
+* Security is not all there
 * Networking of containers is NEW!!!
 
 ---
@@ -230,16 +255,15 @@ Networking solutions that are currently being used for containers:
 
 #Weave
 
-Weave can traverse firewalls and operate in partially connected networks. 
+Weave can traverse firewalls and operate in partially connected networks 
 
-Traffic can be encrypted, allowing hosts to be connected across an untrusted network.
+Traffic can be encrypted, allowing hosts to be connected across an untrusted network
 
-Weave creates a virtual network that connects Docker containers deployed across multiple hosts.
+Weave creates a virtual network that connects Docker containers deployed across multiple hosts
 
-Applications use the network just as if the containers were all plugged into the same network switch, with no need to configure port mappings, links, etc. 
+Applications use the network just as if the containers were all plugged into the same network switch
 
-#Presenter Notes
-Fire up the client VM and launch weave
+No need to configure port mappings, links, etc. 
 
 ---
 
