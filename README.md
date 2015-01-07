@@ -150,9 +150,6 @@ Docker + Microsoft = 1.3m
 
 #Enough with the words
 
-#Presenter Notes
-Docker commands, docker; images, pull, run: -it -d --rm --name -v -P/p, ps, rm, rmi, exec, TALK ABOUT WORKFLOW, Dockerfile; FROM, RUN, EXPOSE, CMD, COPY, ADD
-
 ---
 
 #Building an nginx container
