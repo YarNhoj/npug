@@ -4,9 +4,13 @@
 
 # Agenda
 
+##How do I get Docker
+
 ##Introductions
 
 ##What is Docker
+
+##Docker vs VM's
 
 ##Why should I care?
 
@@ -17,6 +21,25 @@
 ##More Demos!
 
 ##Shoot The Messenger
+
+---
+
+#How do I get Docker
+
+* CentOS/RHEL Docker is in the EPEL
+
+    # yum install -y epel-release
+    # yum install -y docker-io
+
+* Ubuntu
+
+    # sudo apt-get install -y docker.io
+
+* Mac/Windows
+
+    # sudo make me a sandwhich and I might tell you
+
+In all seriousness on Mac/Windows you will use boot2docker :)
 
 ---
 
@@ -37,15 +60,37 @@
 
 # What is Docker
 
-Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications.
+Containers are built on the idea of Kernel Namespaces.
+
+Namespaces wrap system resources in an abstraction that make it seem like each process has it's own isolated instance of the global resource.
+
+Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications in containers
 
 Docker can run on any x64 machine with a modern linux kernel and isolates processes from each other and from the underlying host.
 
 It is a building block for automating distributed systems. Containers behave the same regardless of where, when, and alongside what they run.
 
+Traditional OS; Ubuntu, CentOS, RHEL
+
+Light OS; TinyCore, CoreOS, Atomic
+
+Hosted; GCE, Amazon, IBM
+
+---
+
+# Containers vs VM's
+
 Containers are NOT virtual machines.
 
 Virtual machines have a full OS with lots of overhead, Containers share the host’s OS.
+
+This enables near native performance in a container because you don't deal with the vitual hardware.
+
+The reduction is overall cost also allows greater density on the host.
+
+Containers launch near instantly. No more waiting on someone to provision a vm for you.
+
+Containers aren't going to replace VM's...Yet
 
 ---
 
@@ -58,6 +103,10 @@ IBM, Amazon, Google, and Microsoft have announced hosted versions of their Docke
 Red Hat's upcoming Openshift V3 will be based on Kubernetes and Docker
 
 Docker containers give system administrators a new way to allocate compute resources which introduces a whole new set of virtual network pieces that network engineers will have to manage.
+
+Containers create new problems for infrastructure admins as they must now consider all hardware together as a compute resource.
+
+No longer will you have one application on a single "Host". This has far reaching implication for network security.
 
 The need for ultra highspeed ultra available networking will only increase as the idea of a "datacenter" becomes more organic.
 
@@ -88,6 +137,38 @@ Docker commands, docker; images, pull, run: -it -d --rm --name -v -P/p, ps, rm, 
 
 ---
 
+#Building an nginx container
+
+    # mkdir /npug/nginx && cd /npug/nginx
+    # vim Dockerfile
+
+##Docker File
+
+    FROM debian:jessie
+
+    RUN apt-get update && apt-get install -y\
+        curl\
+        nginx-light\
+        && apt-get clean
+
+    RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+    EXPOSE 80
+
+    CMD ["nginx", "-c", "/etc/nginx/nginx.conf"]
+
+## Build It
+
+    # docker build -t npug/nginx .
+
+## Run Your Container
+    
+    # docker run -it -d --name web -P npug/nginx
+    # docker inspect web
+    # curl ${web_ip}
+
+---
+
 #Networking in Docker
 
 ---
@@ -111,7 +192,6 @@ Head over to https://docs.docker.com/articles/networking/ for more information.
 ---
 
 #The Container Namespace
-
 
 Using the --net option allows you to declare a container as the namespace for other containers.
 
